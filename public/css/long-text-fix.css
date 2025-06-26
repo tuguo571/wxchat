@@ -1,0 +1,259 @@
+/* 长文本消息显示修复样式 */
+
+/* 确保消息容器没有高度限制 */
+.message {
+    /* 移除任何可能的高度限制 */
+    max-height: none !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+/* 确保消息内容容器没有高度限制 */
+.message-content {
+    /* 移除任何可能的高度限制 */
+    max-height: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    /* 确保内容可以正常换行 */
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    /* 确保没有溢出隐藏 */
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}
+
+/* 确保文本消息没有高度限制 */
+.text-message {
+    /* 移除任何可能的高度限制 */
+    max-height: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    /* 确保文本可以正常换行 */
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    /* 确保没有溢出隐藏 */
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    /* 确保没有文本截断 */
+    text-overflow: clip !important;
+    /* 移除任何可能的行数限制 */
+    -webkit-line-clamp: none !important;
+    line-clamp: none !important;
+    /* 确保显示模式正确 */
+    display: block !important;
+    -webkit-box-orient: unset !important;
+}
+
+/* 确保Markdown渲染的文本消息也没有高度限制 */
+.text-message.markdown-rendered {
+    /* 移除任何可能的高度限制 */
+    max-height: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    /* 确保文本可以正常换行 */
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    /* 确保没有溢出隐藏 */
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    /* 确保没有文本截断 */
+    text-overflow: clip !important;
+    /* 移除任何可能的行数限制 */
+    -webkit-line-clamp: none !important;
+    line-clamp: none !important;
+    /* 确保显示模式正确 */
+    display: block !important;
+    -webkit-box-orient: unset !important;
+}
+
+/* 特别处理长链接 */
+.text-message a,
+.text-message.markdown-rendered a {
+    /* 确保链接可以换行 */
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+    /* 确保链接不会被截断 */
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+/* 处理长单词和URL */
+.text-message,
+.text-message.markdown-rendered {
+    /* 强制长单词换行 */
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+}
+
+/* 确保代码块也能正确显示 */
+.text-message pre,
+.text-message.markdown-rendered pre {
+    /* 允许代码块水平滚动，但不限制高度 */
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+}
+
+.text-message code,
+.text-message.markdown-rendered code {
+    /* 确保行内代码可以换行 */
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+/* 确保列表项也能正确显示 */
+.text-message ul,
+.text-message ol,
+.text-message.markdown-rendered ul,
+.text-message.markdown-rendered ol {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.text-message li,
+.text-message.markdown-rendered li {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+/* 确保引用块也能正确显示 */
+.text-message blockquote,
+.text-message.markdown-rendered blockquote {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+/* 确保表格也能正确显示 */
+.text-message table,
+.text-message.markdown-rendered table {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+.text-message td,
+.text-message th,
+.text-message.markdown-rendered td,
+.text-message.markdown-rendered th {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+/* 移动端特别优化 */
+@media (max-width: 768px) {
+    .message {
+        /* 在移动端确保消息可以占用更多宽度 */
+        max-width: 90% !important;
+    }
+    
+    .text-message,
+    .text-message.markdown-rendered {
+        /* 在移动端更积极地换行 */
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+    .message {
+        max-width: 95% !important;
+    }
+    
+    .text-message,
+    .text-message.markdown-rendered {
+        /* 在超小屏幕上更积极地换行 */
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+        hyphens: auto !important;
+    }
+}
+
+/* 强制修复任何可能的CSS冲突 */
+.message,
+.message *,
+.message-content,
+.message-content *,
+.text-message,
+.text-message * {
+    /* 强制移除所有可能的高度和溢出限制 */
+    max-height: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    text-overflow: clip !important;
+    -webkit-line-clamp: none !important;
+    line-clamp: none !important;
+    -webkit-box-orient: unset !important;
+}
+
+/* 特别针对可能的flexbox问题 */
+.message {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+}
+
+.message-content {
+    display: block !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+}
+
+.text-message {
+    display: block !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+}
+
+/* 确保所有可能的伪元素也不会影响显示 */
+.message::before,
+.message::after,
+.message-content::before,
+.message-content::after,
+.text-message::before,
+.text-message::after {
+    display: none !important;
+}
+
+/* 调试样式 - 可以临时启用来检查问题 */
+/*
+.message {
+    border: 2px solid red !important;
+}
+
+.message-content {
+    border: 2px solid blue !important;
+}
+
+.text-message {
+    border: 2px solid green !important;
+    background: rgba(255, 255, 0, 0.1) !important;
+}
+*/
